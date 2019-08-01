@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: muzix-app
+  name: muzix-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: muzix-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: muzix-app
+    spec:
+      containers:
+      - image: rohitrc/muzix-app
+        name: muzix-app
+        ports:
+        - containerPort: 8090
